@@ -4,9 +4,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto,
-  "Helvetica Neue",
-  sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 app-home {

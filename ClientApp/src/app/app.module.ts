@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { ClockComponent } from './clock/clock.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /* Externals Libs */
@@ -14,7 +15,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ClockComponent
   ],
   imports: [
     FlexLayoutModule,
