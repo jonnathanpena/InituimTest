@@ -2,6 +2,7 @@
   "name": "initiumtest",
   "version": "0.0.0",
   "scripts": {
+    "compodoc": "npx compodoc -p tsconfig.json src",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -44,6 +45,7 @@
     "@angular/cli": "^8.3.26",
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "^8.2.12",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~3.4.4",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~12.11.6",

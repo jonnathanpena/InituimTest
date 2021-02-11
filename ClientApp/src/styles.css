@@ -10,3 +10,22 @@ body {
 app-home {
   height: 100%;
 }
+
+.button-container {
+  min-width: 300px;
+}
+
+.mat-raised-button {
+  line-height: inherit;
+  width: 100%;
+}
+
+.mat-raised-button .mat-button-wrapper {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+}
+
+app-list {
+  width: 90%;
+  margin: auto;
+}
