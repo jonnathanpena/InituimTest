@@ -27,7 +27,7 @@ export class ListComponent {
   /**
    * Variable de tipo `string[]`, con el nombre referencial de las columnas
    */
-  public displayedColumns: string[] = ['position', 'client_name', 'queu_name'];
+  public displayedColumns: string[] = ['Turno', 'Nombre', 'Cola'];
   /**
    *
    */
