@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>HomeComponent</li>
+  <li>ListComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -49,6 +49,9 @@
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
         </li>
         <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -58,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/home/home.component.ts</code>
+    <code>src/app/list/list.component.ts</code>
 </p>
 
 
@@ -82,15 +85,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-home</code></td>
+                <td class="col-md-9"><code>app-list</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./list.component.scss</code></td>
+            </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./home.component.html</code></td>
+                <td class="col-md-9"><code>./list.component.html</code></td>
             </tr>
 
 
@@ -108,21 +115,26 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
+                        <h6><b>Properties</b></h6>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#openBottomSheet">openBottomSheet</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#dataSource">dataSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayedColumns">displayedColumns</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
+
 
 
 
@@ -138,45 +150,15 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_bottomSheet: MatBottomSheet)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/home/home.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/list/list.component.ts:34</a></div>
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>_bottomSheet</td>
-                                                  
-                                                        <td>
-                                                                    <code>MatBottomSheet</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -185,50 +167,78 @@
 
 
 
+
     <section>
     
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="openBottomSheet"></a>
-                    <span class="name">
-                        <b>
-                            openBottomSheet
-                        </b>
-                        <a href="#openBottomSheet"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>openBottomSheet()</code>
-                </td>
-            </tr>
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataSource"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dataSource</b>
+                            <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>ELEMENT_DATA</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/list/list.component.ts:34</a></div>
+                            </td>
+                        </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/home/home.component.ts:15</a></div>
-                </td>
-            </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayedColumns"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            displayedColumns</b>
+                            <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Turno&#x27;, &#x27;Nombre&#x27;, &#x27;Cola&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/list/list.component.ts:30</a></div>
+                            </td>
+                        </tr>
 
-            <tr>
-                <td class="col-md-4">
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Variable de tipo <code>string[]</code>, con el nombre referencial de las columnas</p>
+</div>
+                    </td>
+                </tr>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 </section>
 
 </div>
@@ -236,44 +246,78 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { MatBottomSheet, MatBottomSheetRef } from &#x27;@angular/material/bottom-sheet&#x27;;
-import { TurnGenerateComponent } from &#x27;../components/turn-generate/turn-generate.component&#x27;;
+
+export interface PeriodicElement {
+  client_name: string;
+  position: number;
+  queu_name: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] &#x3D; [
+  {position: 1, client_name: &#x27;Hydrogen&#x27;, queu_name: &#x27;H&#x27;},
+  {position: 2, client_name: &#x27;Helium&#x27;, queu_name: &#x27;He&#x27;},
+  {position: 3, client_name: &#x27;Lithium&#x27;,queu_name: &#x27;Li&#x27;},
+  {position: 4, client_name: &#x27;Beryllium&#x27;, queu_name: &#x27;Be&#x27;},
+  {position: 5, client_name: &#x27;Boron&#x27;, queu_name: &#x27;B&#x27;}
+];
 
 @Component({
-  selector: &#x27;app-home&#x27;,
-  templateUrl: &#x27;./home.component.html&#x27;,
+  selector: &#x27;app-list&#x27;,
+  templateUrl: &#x27;./list.component.html&#x27;,
+  styleUrls: [&#x27;./list.component.scss&#x27;]
 })
-export class HomeComponent {
 
-  constructor (
-    private _bottomSheet: MatBottomSheet
-  ) {}
+/**
+ * Clase de tipo component. Esta clase despliega la lista de los turnos, con un limit 5, obtenidos de Redux
+ */
+export class ListComponent {
+  /**
+   * Variable de tipo &#x60;string[]&#x60;, con el nombre referencial de las columnas
+   */
+  public displayedColumns: string[] &#x3D; [&#x27;Turno&#x27;, &#x27;Nombre&#x27;, &#x27;Cola&#x27;];
+  /**
+   *
+   */
+  public dataSource &#x3D; ELEMENT_DATA;
 
-  openBottomSheet(): void {
-    this._bottomSheet.open(TurnGenerateComponent);
-  }
+  constructor () {}
 
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div fxLayout&#x3D;&quot;row&quot; fxFlex&#x3D;&quot;100&quot; fxLayoutAlign&#x3D;&quot;space-around center&quot;&gt;
-  &lt;div fxLayout&#x3D;&quot;column&quot; fxFlex&#x3D;&quot;40&quot; fxLayoutAlign&#x3D;&quot;center center&quot;&gt;
-    &lt;app-clock&gt;&lt;/app-clock&gt;
-    &lt;div fxLayout&#x3D;&quot;row wrap&quot; fxLayoutAlign&#x3D;&quot;center center&quot; class&#x3D;&quot;button-container&quot;&gt;
-      &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;openBottomSheet()&quot;&gt;
-        SOLICITAR TURNO
-      &lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div fxLayout&#x3D;&quot;column&quot; fxFlex&#x3D;&quot;60&quot; fxLayoutAlign&#x3D;&quot;center center&quot;&gt;
-    &lt;app-list&gt;&lt;/app-list&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;mat-grid-list cols&#x3D;&quot;3&quot; rowHeight&#x3D;&quot;3:1&quot;&gt;
+  &lt;mat-grid-tile *ngFor&#x3D;&quot;let column of displayedColumns&quot;&gt;
+    &lt;h1&gt;{{ column }}&lt;/h1&gt;
+  &lt;/mat-grid-tile&gt;
+&lt;/mat-grid-list&gt;
+&lt;mat-grid-list cols&#x3D;&quot;3&quot; rowHeight&#x3D;&quot;3:1&quot; *ngFor&#x3D;&quot;let data of dataSource&quot;&gt;
+  &lt;mat-grid-tile&gt;
+    {{ data.position }}
+  &lt;/mat-grid-tile&gt;
+  &lt;mat-grid-tile&gt;
+    {{ data.client_name }}
+  &lt;/mat-grid-tile&gt;
+  &lt;mat-grid-tile&gt;
+    {{ data.queu_name }}
+  &lt;/mat-grid-tile&gt;
+  &lt;mat-divider&gt;&lt;/mat-divider&gt;
+&lt;/mat-grid-list&gt;
+
+
 </code></pre>
     </div>
 
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./list.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">table {
+  width: 100%;
+}
+</code></pre>
+    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
@@ -300,10 +344,10 @@ export class HomeComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center">  <div fxLayout="column" fxFlex="40" fxLayoutAlign="center center">    <app-clock></app-clock>    <div fxLayout="row wrap" fxLayoutAlign="center center" class="button-container">      <button mat-raised-button color="primary" (click)="openBottomSheet()">        SOLICITAR TURNO      </button>    </div>  </div>  <div fxLayout="column" fxFlex="60" fxLayoutAlign="center center">    <app-list></app-list>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-grid-list cols="3" rowHeight="3:1">  <mat-grid-tile *ngFor="let column of displayedColumns">    <h1>{{ column }}</h1>  </mat-grid-tile></mat-grid-list><mat-grid-list cols="3" rowHeight="3:1" *ngFor="let data of dataSource">  <mat-grid-tile>    {{ data.position }}  </mat-grid-tile>  <mat-grid-tile>    {{ data.client_name }}  </mat-grid-tile>  <mat-grid-tile>    {{ data.queu_name }}  </mat-grid-tile>  <mat-divider></mat-divider></mat-grid-list></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ClockComponent', 'selector': 'app-clock'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListComponent', 'selector': 'app-list'},{'name': 'TurnGenerateComponent', 'selector': 'app-turn-generate'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
+    var ACTUAL_COMPONENT = {'name': 'ListComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -338,7 +382,7 @@ export class HomeComponent {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'HomeComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ListComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
