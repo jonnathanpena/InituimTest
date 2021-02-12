@@ -1,4 +1,5 @@
 ﻿using InitiumTest.Models;
+using InitiumTest.Models.ViewsModels;
 using InitiumTest.Utils;
 using System;
 using System.Linq;
@@ -20,11 +21,12 @@ namespace InitiumTest.Functions
             _db = db;
         }
 
-        public ClientInsertResponse CreateOrUpdate(Client client)
+        // Crea o edita el cliente
+        public ResponseIdExceptionFunction CreateOrUpdate(Client client)
         {
             // Iniciamos la variable que vamos a retornar
-            ClientInsertResponse clientInsertResponse = new ClientInsertResponse();
-            clientInsertResponse.Id = 0;
+            ResponseIdExceptionFunction clientInsertResponse = new ResponseIdExceptionFunction();
+            clientInsertResponse.Integer = 0;
             try
             {
                 // Consultamos el cliente por su ClientIdentification
@@ -34,17 +36,18 @@ namespace InitiumTest.Functions
                 {
                     _db.Client.Add(client);
                     _db.SaveChanges();
-                    clientInsertResponse.Id = client.Id;
+                    clientInsertResponse.Integer = client.Id;
                 } 
                 // Caso que exista editamos
                 else
                 {
                     clientInserted.ClientName = client.ClientName;
                     _db.SaveChanges();
-                    clientInsertResponse.Id = clientInserted.Id;
+                    clientInsertResponse.Integer = clientInserted.Id;
                 }
+            }
             // Capturamos la excepción
-            } catch (Exception e)
+            catch (Exception e)
             {
                 // Guardamos la excepción encontrada en un archivo log
                 Log.LOG("CONTROLADOR: ClientFunctions, FUNCIÓN: CreateOrUpdate(), PARÁMETROS: Client.Identification = "+ client.ClientIdentification +", Client.Name = "+ client.ClientName +" ERROR: " + e.Message);

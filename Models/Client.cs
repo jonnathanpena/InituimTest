@@ -19,16 +19,4 @@ namespace InitiumTest.Models
         [Required]
         public string ClientName { get; set; }
     }
-
-    /*
-        Clase ClientInsertResponse
-        Contiene los atributos necesarios para la respuesta en la función de crear/editar cliente
-    */
-    public class ClientInsertResponse
-    {
-        // Id del Client creado/editado
-        public int Id { get; set; }
-        // Respuesta del try (caso de producirse)
-        public string Exception { get; set; }
-    }
 }
