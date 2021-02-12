@@ -1,4 +1,13 @@
 <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center">
-  <div fxLayout="column" fxLayoutAlign="center center">First</div>
-  <div fxLayout="column" fxLayoutAlign="center center">Second</div>
+  <div fxLayout="column" fxFlex="40" fxLayoutAlign="center center">
+    <app-clock></app-clock>
+    <div fxLayout="row wrap" fxLayoutAlign="center center" class="button-container">
+      <button mat-raised-button color="primary" (click)="openBottomSheet()">
+        SOLICITAR TURNO
+      </button>
+    </div>
+  </div>
+  <div fxLayout="column" fxFlex="60" fxLayoutAlign="center center">
+    <app-list></app-list>
+  </div>
 </div>

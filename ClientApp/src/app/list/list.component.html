@@ -1,0 +1,19 @@
+<mat-grid-list cols="3" rowHeight="3:1">
+  <mat-grid-tile *ngFor="let column of displayedColumns">
+    <h1>{{ column }}</h1>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="3" rowHeight="3:1" *ngFor="let data of dataSource">
+  <mat-grid-tile>
+    {{ data.position }}
+  </mat-grid-tile>
+  <mat-grid-tile>
+    {{ data.client_name }}
+  </mat-grid-tile>
+  <mat-grid-tile>
+    {{ data.queu_name }}
+  </mat-grid-tile>
+  <mat-divider></mat-divider>
+</mat-grid-list>
+
+
