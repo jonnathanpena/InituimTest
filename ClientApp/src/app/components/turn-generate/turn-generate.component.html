@@ -3,14 +3,14 @@
     <div mat-list-item>
       <mat-form-field appearance="outline" fxFlex="100">
         <mat-label>Identificación</mat-label>
-        <input matInput placeholder="Ej. 1234567890" formControlName="identification" autocomplete="off" required>
-        <mat-error *ngIf="turnForm.controls['identification'].hasError('required')">
+        <input matInput placeholder="Ej. 1234567890" formControlName="clientIdentification" autocomplete="off" required>
+        <mat-error *ngIf="turnForm.controls['clientIdentification'].hasError('required')">
           Campo es <strong>requerido</strong>
         </mat-error>
-        <mat-error *ngIf="turnForm.controls['identification'].hasError('pattern')">
+        <mat-error *ngIf="turnForm.controls['clientIdentification'].hasError('pattern')">
           Solo valores <strong>numéricos permitidos</strong>
         </mat-error>
-        <mat-error *ngIf="turnForm.controls['identification'].hasError('maxlength')">
+        <mat-error *ngIf="turnForm.controls['clientIdentification'].hasError('maxlength')">
           Excediste de <strong>20 dígitos permitidos</strong>
         </mat-error>
       </mat-form-field>
@@ -19,11 +19,11 @@
     <div mat-list-item>
       <mat-form-field appearance="outline" fxFlex="100">
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Ej. Nombre Persona..." formControlName="name" autocomplete="off" required>
-        <mat-error *ngIf="turnForm.controls['name'].hasError('required')">
+        <input matInput placeholder="Ej. Nombre Persona..." formControlName="clientName" autocomplete="off" required>
+        <mat-error *ngIf="turnForm.controls['clientName'].hasError('required')">
           Campo es <strong>requerido</strong>
         </mat-error>
-        <mat-error *ngIf="turnForm.controls['name'].hasError('maxlength')">
+        <mat-error *ngIf="turnForm.controls['clientName'].hasError('maxlength')">
           Excediste de <strong>300 dígitos permitidos</strong>
         </mat-error>
       </mat-form-field>

@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      {{ (applicationState$ | async).last.client.clientName }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ (applicationState$ | async).last.turnAt }}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h1 class="turn">
+      {{ (applicationState$ | async).last.position }}
+    </h1>
+    <h3>
+      {{ (applicationState$ | async).last.queueCat.queueName }}
+    </h3>
+  </mat-card-content>
+</mat-card>

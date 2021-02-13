@@ -159,7 +159,7 @@ namespace InitiumTest.Functions
             try
             {
                 List<Queue> pendingQueues = _db.Queue.Where(q => q.Processed == false).OrderBy(ob => ob.Position).Include(i => i.QueueCat).Include(i => i.Client).Take(2).ToList();
-                List<Queue> lastQueues = _db.Queue.Where(q => q.Processed == true && q.CreatedAt >= startDateTime && q.CreatedAt <= endDateTime).OrderBy(ob => ob.Position).Include(i => i.QueueCat).Include(i => i.Client).Take(5).ToList();
+                List<Queue> lastQueues = _db.Queue.Where(q => q.Processed == true && q.CreatedAt >= startDateTime && q.CreatedAt <= endDateTime).OrderByDescending(ob => ob.Position).Include(i => i.QueueCat).Include(i => i.Client).Take(5).ToList();
                 pendingQueues.AddRange(lastQueues);
                 apiResponse.Data = pendingQueues;
             }
