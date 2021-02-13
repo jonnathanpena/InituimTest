@@ -27,8 +27,6 @@ namespace InitiumTest
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            // Connection String
-            //var connection = @"Server=localhost;Database=InitiumTest;Trusted_Connection=True;";
             // Inyección de dependencia
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("main")));
         }

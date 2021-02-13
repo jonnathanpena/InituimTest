@@ -16,4 +16,6 @@
     </h3>
   </mat-card-content>
 </mat-card>
-<audio *ngIf="notification" src="assets/got-it-done.mp3" autoplay></audio>
+<audio #audioOption>
+  <source src='/assets/got-it-done.mp3' type="audio/mp3">
+</audio>

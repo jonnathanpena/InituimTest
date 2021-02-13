@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -28,7 +28,7 @@ export class CardComponent implements OnDestroy {
    * Variable privada para destrucción del subscribe cuando el componente se destruya
    */
   private _onDestroy = new Subject<void>();
-  public notification : boolean = false;
+  @ViewChild('audioOption', { static: false }) audioPlayerRef: ElementRef;
 
   constructor (
     /**
@@ -39,21 +39,12 @@ export class CardComponent implements OnDestroy {
     this.applicationState$ = this.applicationStore.pipe(select('application_state'));
     this.applicationState$.pipe(takeUntil(this._onDestroy)).subscribe((data : ApplicationState) => {
       if (this.actualPosition != data.last.position) {
-        this.playAudio();
-        this.notification = true;
         this.actualPosition = data.last.position;
-        setTimeout(() => {
-          this.notification = false;
-        }, 2000);
+        if (this.audioPlayerRef) {
+          this.audioPlayerRef.nativeElement.play();
+        }
       }
     });
-  }
-
-  playAudio(){
-    let audio = new Audio();
-    audio.src = "../../assets/got-it-done.mp3";
-    audio.load();
-    audio.play();
   }
 
   ngOnDestroy() : void {
