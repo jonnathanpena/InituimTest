@@ -20,6 +20,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+/* End Externals Libs */
+
+/* REDUX */
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { applicationReducer } from './redux/reducers/application.reducer';
+/* END REDUX */
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +39,20 @@ import { MatDividerModule } from '@angular/material/divider';
     TurnGenerateComponent
   ],
   imports: [
+    StoreModule.forRoot(
+      {
+        application_state: applicationReducer
+      }, {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+        strictStateSerializability: true,
+        strictActionSerializability: true,
+      }
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    }),
     FlexLayoutModule,
     MatButtonModule,
     MatBottomSheetModule,
