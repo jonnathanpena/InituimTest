@@ -16,9 +16,9 @@ export class UpdateData implements Action {
   constructor(public payload: Queue[]) {}
 }
 
-export class RELOADDATA implements Action {
+export class ReloadData implements Action {
   readonly type = ApplicationActionTypes.RELOADDATA;
   constructor(public payload: boolean) {}
 }
 
-export type ApplicationActionUnion = Load | UpdateData | RELOADDATA;
+export type ApplicationActionUnion = Load | UpdateData | ReloadData;

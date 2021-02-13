@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class URLProvider {
-  private domain: String = 'https://localhost:44330/';
+  private domain: String = 'https://localhost:44330';
 
   public queue() : String {
     return `${this.domain}/api/Queue`;

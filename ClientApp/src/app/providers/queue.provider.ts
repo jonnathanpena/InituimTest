@@ -17,11 +17,11 @@ export class QueueProvider {
   ) {}
 
   public queue() : Promise<{ success: boolean, errorMessage : string, data : Queue[] }> {
-    return this.http.get<{ success: boolean, errorMessage : string, data : Queue[] }>(`${this.urlProvider.queue}/All`).toPromise();
+    return this.http.get<{ success: boolean, errorMessage : string, data : Queue[] }>(`${this.urlProvider.queue()}/All`).toPromise();
   }
 
   public getTurn(client : Client) : Promise<{ success: boolean, errorMessage : string, data : number }> {
-    return this.http.post<{ success: boolean, errorMessage : string, data : number }>(`${this.urlProvider.queue}/GetTurn`, client).toPromise();
+    return this.http.post<{ success: boolean, errorMessage : string, data : number }>(`${this.urlProvider.queue()}/GetTurn`, client).toPromise();
   }
 
   public queueProcessed(id : number) : Promise<{ success: boolean, errorMessage : string, data : string }> {

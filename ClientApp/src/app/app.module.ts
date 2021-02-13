@@ -20,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 /* End Externals Libs */
 
 /* REDUX */
@@ -61,6 +62,7 @@ import { applicationReducer } from './redux/reducers/application.reducer';
     MatInputModule,
     MatGridListModule,
     MatDividerModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
