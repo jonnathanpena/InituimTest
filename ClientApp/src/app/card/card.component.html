@@ -1,18 +1,19 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      {{ (applicationState$ | async).last.client.clientName }}
+      {{ (applicationState$ | async)?.last?.client?.clientName }}
     </mat-card-title>
     <mat-card-subtitle>
-      {{ (applicationState$ | async).last.turnAt }}
+      {{ ((applicationState$ | async)?.last?.turnAt) | date:'shortTime' }}
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <h1 class="turn">
-      {{ (applicationState$ | async).last.position }}
+      {{ (applicationState$ | async)?.last?.position }}
     </h1>
     <h3>
-      {{ (applicationState$ | async).last.queueCat.queueName }}
+      {{ (applicationState$ | async)?.last?.queueCat?.queueName }}
     </h3>
   </mat-card-content>
 </mat-card>
+<audio *ngIf="notification" src="assets/got-it-done.mp3" autoplay></audio>

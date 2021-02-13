@@ -41,7 +41,7 @@ export class ListComponent implements OnInit, OnDestroy {
   /**
    * Variable privada que realiza los intérvalos de consultas
    */
-  private interval = interval(1000);
+  private interval = interval(10000);
   /**
    * Variable para la tabla de las colas
    */
@@ -81,6 +81,7 @@ export class ListComponent implements OnInit, OnDestroy {
    */
   ngOnInit() : void {
     this.applicationState$.pipe(takeUntil(this._onDestroy)).subscribe((data: ApplicationState) => {
+      console.log('consultado');
       if (data.getAll) {
         this.getQueues();
         return;
@@ -116,13 +117,16 @@ export class ListComponent implements OnInit, OnDestroy {
    * Función comparadora de los pendientes
    */
   compareNexts() : void {
-    const now = formatDate(new Date(),'yyyy-MM-dd HH:ii','en_US');
+    const now = formatDate(new Date(),'yyyy-MM-dd HH:mm','en_US');
+    console.log('now', now);
     for (let n of this.next) {
-      let newDate = formatDate(new Date(n.turnAt),'yyyy-MM-dd HH:ii','en_US');
+      let newDate = formatDate(new Date(n.turnAt),'yyyy-MM-dd HH:mm','en_US');
+      console.log('newDate', newDate);
+      console.log('compare', now === newDate);
       if (now === newDate) {
-        this.queueService.queueProcessed(n.id).then((data : { success: boolean, errorMessage : string, data : string }) => {
+        this.queueService.queueProcessed(n.id).then((_ : { success: boolean, errorMessage : string, data : string }) => {
           this.getQueues();
-        }).catch( error => {
+        }).catch( _ => {
           this.getQueues();
         });
       }
