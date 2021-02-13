@@ -3,6 +3,7 @@ using InitiumTest.Models.ViewsModels;
 using InitiumTest.Utils;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace InitiumTest.Functions
@@ -26,56 +27,61 @@ namespace InitiumTest.Functions
             Function ResponseIdExceptionFunction
             Contiene asigna el turno al cliente
             @params ClientId ID del cliente previamente registrado
-            @return 
+            @return ResponseIdExceptionFunction con intero y excepción en caso de existir
         */
         public ResponseIdExceptionFunction TurnAsing (int ClientId)
         {
             // iniciamos el objeto a retornar
             ResponseIdExceptionFunction turnAsignResponse = new ResponseIdExceptionFunction();
             turnAsignResponse.Integer = 0;
+            Queue newTurn = new Queue();
+            newTurn.ClientId = ClientId;
+            newTurn.Processed = false;
+            DateTime now = DateTime.Now;
             try
             {
-                // Creamos el objeto de catálogo de colas
-                QueueCat queueCat = new QueueCat();
-                // Consultamos la cola que está más cerca
-                Queue queue_closer = _db.Queue
-                    .Where(
-                        q => q.Processed == false && q.TurnAt < DateTime.Now
-                    ).Include(q => q.QueueCat)
-                    .OrderByDescending(o => o.Position)
-                    .OrderBy(ob => ob.TurnAt)
-                    .FirstOrDefault();
-                // En caso de no existir consultamos directo del catálogo, con el menor tiempo de proceso
-                if (queue_closer == null)
+                // Seteamos la posición uno másde la cantidad registrada para las colas
+                newTurn.Position = _db.Queue.Count() + 1;
+                turnAsignResponse.Integer = newTurn.Position;
+                // Seleccionamos el catálogo de colas ordenado ascendente por el tiempo de demora
+                List<QueueCat> catalogs = _db.QueueCat.OrderBy(ob => ob.QueueTime).ToList();
+
+                // Consultamos las colas pendientes
+                var activesQueues = this.activesQueues(_db);
+
+                // Si no existe ninguna cola por procesar, seteamos por defecto la primera del catálogo y pasaría de inmediato
+                if (activesQueues.Count == 0)
                 {
-                    queueCat = _db.QueueCat.OrderBy(o => o.QueueTime).FirstOrDefault();
-                } 
-                // Si existe una cola próxima, asignamos el objeto del query obtenido
+                    newTurn.QueueId = catalogs[0].Id;
+                    newTurn.TurnAt = now;
+                }
+                // En caso de existir consultamos agrupadamente `por el catálogo de colas
                 else
                 {
-                    queueCat = queue_closer.QueueCat;
+                    List<Queue> comparationTimes = new List<Queue>();
+                    foreach (QueueCat cat in catalogs)
+                    {
+                        Queue query = activesQueues.Where(fd => fd.QueueId == cat.Id).OrderByDescending(obd => obd.TurnAt).FirstOrDefault();
+                        Queue comparationTime = new Queue { Id = 0, ClientId = 0, CreatedAt = now, Position = 0, Processed = true, QueueId = query != null ? query.QueueId : cat.Id, TurnAt = query != null ? query.TurnAt.AddMinutes(cat.QueueTime) : now };
+                        comparationTimes.Add(comparationTime);
+                    }
+                    Queue lastOne = comparationTimes.OrderBy(od => od.TurnAt).FirstOrDefault();
+                    // En caso de que la última haya pasado antes de ahora, quiere decir que no hay nadie en cola y puede pasar de inmediato
+                    if (lastOne.TurnAt < now)
+                    {
+                        newTurn.QueueId = catalogs[0].Id;
+                        newTurn.TurnAt = now;
+                    } 
+                    // Caso contrario se le asigna una cola y tiempo para ser atendido
+                    else
+                    {
+                        newTurn.QueueId = lastOne.QueueId;
+                        newTurn.TurnAt = lastOne.TurnAt;
+                    }
                 }
-                // Creamos el objeto a guardar en la BD
-                Queue newTurn = new Queue();
-                /**
-                 * Comenzamos a cargar de información que se va a registrar
-                 */
-                // Id correspondiente al catálogo que se va registrar
-                newTurn.QueueId = queueCat.Id;
-                // Id del cliente que viene como parámetro de la función
-                newTurn.ClientId = ClientId;
-                // Establecemos como procesado false
-                newTurn.Processed = false;
-                // Al turno asignado, aplicamos una triada, de existir una cola, agrega minutos desde el último turno, con la cola seleccionada, de lo contrario con DataTime.Now
-                newTurn.TurnAt = queue_closer != null ? queue_closer.TurnAt.AddMinutes(queueCat.QueueTime) : DateTime.Now.AddMinutes(queueCat.QueueTime);
-                // La posición cumple una triada, de existir una cola, le asigna la posición siguiente de lo contrario, inicia en 1
-                newTurn.Position = queue_closer != null ? queue_closer.Position++ : 1;
-                // Agregamos la cola
+                // Guardamos la información
                 _db.Queue.Add(newTurn);
-                // Guardamos los cambios en la BD
                 _db.SaveChanges();
-                // Asignamos el valor entero que deseamos retornar
-                turnAsignResponse.Integer = newTurn.Position;
             }
             // Capturamos la excepción
             catch (Exception e)
@@ -86,6 +92,11 @@ namespace InitiumTest.Functions
             }
 
             return turnAsignResponse;
+        }
+
+        protected List<Queue> activesQueues(ApplicationDbContext db)
+        {
+            return db.Queue.Where(q => q.Processed == false).OrderByDescending(ob => ob.TurnAt).ToList();
         }
     }
 }

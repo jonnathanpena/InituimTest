@@ -14,7 +14,7 @@ namespace InitiumTest.Models
         public int Id { get; set; }
         // Identificación del cliente, Cédula, RUC, Pasaporte,...
         [Required]
-        public int ClientIdentification { get; set; }
+        public string ClientIdentification { get; set; }
         // Nombre del cliente
         [Required]
         public string ClientName { get; set; }
