@@ -8,7 +8,7 @@ export interface Queue {
   client: Client;
   processed: boolean;
   position: number;
-  turnAt: Date;
+  turnAt: string;
 }
 
 export interface QueueCat {

@@ -8,12 +8,13 @@
     {{ data.position }}
   </mat-grid-tile>
   <mat-grid-tile>
-    {{ data.client_name }}
+    {{ data.client.clientName }}
   </mat-grid-tile>
   <mat-grid-tile>
-    {{ data.queu_name }}
+    {{ data.queueCat.queueName }}
   </mat-grid-tile>
   <mat-divider></mat-divider>
 </mat-grid-list>
+<p style="color: red;" *ngIf="errorMessage != ''">{{ errorMessage }}</p>
 
 
