@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ClockComponent } from './clock/clock.component';
+import { CardComponent } from './card/card.component';
 import { ListComponent } from './list/list.component';
 import { TurnGenerateComponent } from './components/turn-generate/turn-generate.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 /* End Externals Libs */
 
 /* REDUX */
@@ -32,7 +33,7 @@ import { applicationReducer } from './redux/reducers/application.reducer';
   declarations: [
     AppComponent,
     HomeComponent,
-    ClockComponent,
+    CardComponent,
     ListComponent,
     TurnGenerateComponent
   ],
@@ -63,6 +64,7 @@ import { applicationReducer } from './redux/reducers/application.reducer';
     MatGridListModule,
     MatDividerModule,
     MatSnackBarModule,
+    MatCardModule,
     ReactiveFormsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
@@ -71,9 +73,6 @@ import { applicationReducer } from './redux/reducers/application.reducer';
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ]),
     BrowserAnimationsModule
-  ],
-  exports: [
-    ClockComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

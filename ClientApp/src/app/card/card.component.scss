@@ -1,0 +1,22 @@
+.mat-card {
+  min-width: 268px;
+  margin-bottom: 15px;
+}
+
+.turn {
+  text-align: center;
+  font-size: 10em;
+}
+
+.mat-card-content>:first-child, .mat-card>:first-child {
+  margin: 0;
+}
+
+.mat-card-content>:last-child:not(.mat-card-footer), .mat-card>:last-child:not(.mat-card-footer) {
+  margin: 0;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2.5em;
+}
