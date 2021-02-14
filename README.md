@@ -6,6 +6,7 @@
     ├── ClientApp               # Aplicación en Angular/Redux
     ├──── documentation         # Se encuentra la documentación generada por los comentarios en el client
     ├── ...                     # Aplicación Backend en .Net Core
+    └── ...
 
 
 ### Tecnologías aplicadas
