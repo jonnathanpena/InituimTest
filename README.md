@@ -2,10 +2,10 @@
 > Prueba de admisión para Initium Software, con .Net Core y Angular/Redux
 
 ### Macro Estructura
-   .
-    ├── ClientApp               # Aplicación en Angular/Redux
-    ├──── documentation         # Se encuentra la documentación generada por los comentarios en el client
-    ├── ...                     # Aplicación Backend en .Net Core
+
+    .
+    ├── ...
+    ├── ClientApp          # Aplicación en Angular/Redux
     └── ...
 
 
