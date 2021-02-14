@@ -260,7 +260,7 @@ export class HomeComponent {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div fxLayout&#x3D;&quot;row&quot; fxFlex&#x3D;&quot;100&quot; fxLayoutAlign&#x3D;&quot;space-around center&quot;&gt;
   &lt;div fxLayout&#x3D;&quot;column&quot; fxFlex&#x3D;&quot;40&quot; fxLayoutAlign&#x3D;&quot;center center&quot;&gt;
-    &lt;app-clock&gt;&lt;/app-clock&gt;
+    &lt;app-card&gt;&lt;/app-card&gt;
     &lt;div fxLayout&#x3D;&quot;row wrap&quot; fxLayoutAlign&#x3D;&quot;center center&quot; class&#x3D;&quot;button-container&quot;&gt;
       &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;openBottomSheet()&quot;&gt;
         SOLICITAR TURNO
@@ -300,8 +300,8 @@ export class HomeComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center">  <div fxLayout="column" fxFlex="40" fxLayoutAlign="center center">    <app-clock></app-clock>    <div fxLayout="row wrap" fxLayoutAlign="center center" class="button-container">      <button mat-raised-button color="primary" (click)="openBottomSheet()">        SOLICITAR TURNO      </button>    </div>  </div>  <div fxLayout="column" fxFlex="60" fxLayoutAlign="center center">    <app-list></app-list>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ClockComponent', 'selector': 'app-clock'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListComponent', 'selector': 'app-list'},{'name': 'TurnGenerateComponent', 'selector': 'app-turn-generate'}];
+        var COMPONENT_TEMPLATE = '<div><div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center">  <div fxLayout="column" fxFlex="40" fxLayoutAlign="center center">    <app-card></app-card>    <div fxLayout="row wrap" fxLayoutAlign="center center" class="button-container">      <button mat-raised-button color="primary" (click)="openBottomSheet()">        SOLICITAR TURNO      </button>    </div>  </div>  <div fxLayout="column" fxFlex="60" fxLayoutAlign="center center">    <app-list></app-list>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardComponent', 'selector': 'app-card'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListComponent', 'selector': 'app-list'},{'name': 'TurnGenerateComponent', 'selector': 'app-turn-generate'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
 </script>
