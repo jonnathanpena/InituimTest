@@ -54,7 +54,7 @@ namespace InitiumTest.Functions
                 if (activesQueues.Count == 0)
                 {
                     newTurn.QueueId = catalogs[0].Id;
-                    newTurn.TurnAt = now;
+                    newTurn.TurnAt = now.AddMinutes(catalogs[0].QueueTime);
                 }
                 // En caso de existir consultamos agrupadamente `por el catálogo de colas
                 else
@@ -63,7 +63,7 @@ namespace InitiumTest.Functions
                     foreach (QueueCat cat in catalogs)
                     {
                         Queue query = activesQueues.Where(fd => fd.QueueId == cat.Id).OrderByDescending(obd => obd.TurnAt).FirstOrDefault();
-                        Queue comparationTime = new Queue { Id = 0, ClientId = 0, CreatedAt = now, Position = 0, Processed = true, QueueId = query != null ? query.QueueId : cat.Id, TurnAt = query != null ? query.TurnAt.AddMinutes(cat.QueueTime) : now };
+                        Queue comparationTime = new Queue { Id = 0, ClientId = 0, CreatedAt = now, Position = 0, Processed = true, QueueId = query != null ? query.QueueId : cat.Id, TurnAt = query != null ? query.TurnAt.AddMinutes(cat.QueueTime) : now.AddMinutes(cat.QueueTime) };
                         comparationTimes.Add(comparationTime);
                     }
                     Queue lastOne = comparationTimes.OrderBy(od => od.TurnAt).FirstOrDefault();
@@ -71,7 +71,7 @@ namespace InitiumTest.Functions
                     if (lastOne.TurnAt < now)
                     {
                         newTurn.QueueId = catalogs[0].Id;
-                        newTurn.TurnAt = now;
+                        newTurn.TurnAt = now.AddMinutes(catalogs[0].QueueTime);
                     } 
                     // Caso contrario se le asigna una cola y tiempo para ser atendido
                     else
@@ -129,7 +129,7 @@ namespace InitiumTest.Functions
                 // Ya existente la editamos
                 else
                 {
-                    queue.Processed = false;
+                    queue.Processed = true;
                     _db.Update(queue);
                     _db.SaveChanges();
                 }

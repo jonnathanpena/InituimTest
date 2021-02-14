@@ -27,10 +27,8 @@ namespace InitiumTest
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            // Connection String
-            var connection = @"Server=localhost;Database=InitiumTest;Trusted_Connection=True;";
             // Inyección de dependencia
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("main")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

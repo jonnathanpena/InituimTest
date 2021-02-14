@@ -25,6 +25,6 @@ export class QueueProvider {
   }
 
   public queueProcessed(id : number) : Promise<{ success: boolean, errorMessage : string, data : string }> {
-    return this.http.delete<{ success: boolean, errorMessage : string, data : string }>(`${this.urlProvider.queue()}/QueueProcessed/${id}}`).toPromise();
+    return this.http.delete<{ success: boolean, errorMessage : string, data : string }>(`${this.urlProvider.queue()}/QueueProcessed/${id}`).toPromise();
   }
 }

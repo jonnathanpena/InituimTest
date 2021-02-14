@@ -141,6 +141,9 @@
                             <li>
                                 <a href="#createForm">createForm</a>
                             </li>
+                            <li>
+                                <a href="#openSnackBar">openSnackBar</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -159,12 +162,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, _bottomSheetRef: <a href="../components/TurnGenerateComponent.html">MatBottomSheetRef<TurnGenerateComponent></a>)</code>
+<code>constructor(formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, _bottomSheetRef: <a href="../components/TurnGenerateComponent.html">MatBottomSheetRef<TurnGenerateComponent></a>, queueService: <a href="../injectables/QueueProvider.html">QueueProvider</a>, _snackBar: MatSnackBar, applicationStore: Store<literal type>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -198,6 +201,42 @@
                                                   
                                                         <td>
                                                                         <code><a href="../components/TurnGenerateComponent.html" target="_self" >MatBottomSheetRef&lt;TurnGenerateComponent&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>queueService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QueueProvider.html" target="_self" >QueueProvider</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>applicationStore</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store&lt;literal type&gt;</code>
                                                         </td>
                                                   
                                                     <td>
@@ -245,14 +284,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:75</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Cierra el bottomsheet</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -284,14 +325,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:83</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Acción que se ejecuta en el onSubmit() del formulario, llama al servicio para crear un turno</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -301,6 +344,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -315,6 +359,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>tipo mouse click o enter, para prevenir propagaciones inmediatas y default</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -354,18 +402,104 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:65</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Construye el formulario</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openSnackBar"></a>
+                    <span class="name">
+                        <b>
+                            openSnackBar
+                        </b>
+                        <a href="#openSnackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openSnackBar(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que notifica con el snackbar</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>message</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>action</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -398,10 +532,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/turn-generate/turn-generate.component.ts:35</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Variable públic para el manejo del formulario</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -415,35 +555,106 @@
 import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 import { MatBottomSheetRef } from &#x27;@angular/material&#x27;;
 
+/* SnackBar */
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+/* End SnackBar */
+
+/* Models */
+import { Client } from &#x27;../../models/Client&#x27;;
+/* End Models */
+
+/* Providers */
+import { QueueProvider } from &#x27;../../providers/queue.provider&#x27;;
+/* End Providers */
+
+/* Redux */
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { ApplicationState } from &#x27;../../redux/states/application.state&#x27;;
+import { ReloadData } from &#x27;../../redux/actions/application.action&#x27;;
+/* End Redux */
+
 @Component({
   selector: &#x27;app-turn-generate&#x27;,
   templateUrl: &#x27;./turn-generate.component.html&#x27;,
 })
 
+/**
+ * Calse TurnGenerateComponent. Contiene el BottomSheet para la asignación de turno
+ */
 export class TurnGenerateComponent {
+  /**
+   * Variable públic para el manejo del formulario
+   */
   public turnForm: FormGroup;
 
   constructor(
+    /**
+     * Variable privada que contiene el constructor del formulario
+     */
     private formBuilder: FormBuilder,
-    private _bottomSheetRef: MatBottomSheetRef&lt;TurnGenerateComponent&gt;
+    /**
+     * Variable privada que autocontiene el componente para su cerrado inesperado
+     */
+    private _bottomSheetRef: MatBottomSheetRef&lt;TurnGenerateComponent&gt;,
+    /**
+     * Variable privada donde está el servicio de crear turno desde el proveedor
+     */
+    private queueService : QueueProvider,
+    /**
+     * Variable privada para el snackBar
+     */
+    private _snackBar: MatSnackBar,
+    /**
+     * Variable privada donde maneja el &#x60;store&#x60; de redux de tipo &#x60;redux store&#x60;
+     */
+    private applicationStore : Store&lt;{application_state: ApplicationState}&gt;
   ) {
-    this.turnForm &#x3D; this.createForm();
+    this.turnForm &#x3D; this.createForm()
   }
 
+  /**
+   * Construye el formulario
+   */
   createForm() : FormGroup {
     return this.formBuilder.group({
-      identification: [&#x27;&#x27;, Validators.compose([Validators.required, Validators.maxLength(20), Validators.pattern(&#x27;[0-9]*&#x27;)])],
-      name: [&#x27;&#x27;, Validators.compose([Validators.required, Validators.maxLength(300)])],
+      clientIdentification: [&#x27;&#x27;, Validators.compose([Validators.required, Validators.maxLength(20), Validators.pattern(&#x27;[0-9]*&#x27;)])],
+      clientName: [&#x27;&#x27;, Validators.compose([Validators.required, Validators.maxLength(300)])],
     });
   }
 
+  /**
+   * Cierra el bottomsheet
+   */
   closeButtonSheet(): void {
     this._bottomSheetRef.dismiss();
   }
 
+  /**
+   * Acción que se ejecuta en el onSubmit() del formulario, llama al servicio para crear un turno
+   * @param event tipo mouse click o enter, para prevenir propagaciones inmediatas y default
+   */
   create(event: MouseEvent) : void {
     event.preventDefault();
     event.stopImmediatePropagation();
+    const { clientIdentification,  clientName } &#x3D; this.turnForm.value;
+    const client : Client &#x3D; { clientIdentification, clientName };
+    this.queueService.getTurn(client).then((data : { success: boolean, errorMessage : string, data : number }) &#x3D;&gt; {
+      this.openSnackBar(&#x60;Turno asignado ${data.data}&#x60;, &#x27;&#x27;);
+      this.applicationStore.dispatch(new ReloadData(true));
+      this.closeButtonSheet();
+    }).catch(error &#x3D;&gt; {
+      this.openSnackBar(&#x60;Ocurrió un error ${error.message}&#x60;, &#x27;&#x27;);
+      this.closeButtonSheet();
+    });
+  }
+
+  /**
+   * Función que notifica con el snackbar
+   */
+  openSnackBar(message: string, action: string) : void {
+    this._snackBar.open(message, action, {
+      duration: 4000,
+    });
   }
 }
 </code></pre>
@@ -455,14 +666,14 @@ export class TurnGenerateComponent {
     &lt;div mat-list-item&gt;
       &lt;mat-form-field appearance&#x3D;&quot;outline&quot; fxFlex&#x3D;&quot;100&quot;&gt;
         &lt;mat-label&gt;Identificación&lt;/mat-label&gt;
-        &lt;input matInput placeholder&#x3D;&quot;Ej. 1234567890&quot; formControlName&#x3D;&quot;identification&quot; autocomplete&#x3D;&quot;off&quot; required&gt;
-        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;identification&#x27;].hasError(&#x27;required&#x27;)&quot;&gt;
+        &lt;input matInput placeholder&#x3D;&quot;Ej. 1234567890&quot; formControlName&#x3D;&quot;clientIdentification&quot; autocomplete&#x3D;&quot;off&quot; required&gt;
+        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;clientIdentification&#x27;].hasError(&#x27;required&#x27;)&quot;&gt;
           Campo es &lt;strong&gt;requerido&lt;/strong&gt;
         &lt;/mat-error&gt;
-        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;identification&#x27;].hasError(&#x27;pattern&#x27;)&quot;&gt;
+        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;clientIdentification&#x27;].hasError(&#x27;pattern&#x27;)&quot;&gt;
           Solo valores &lt;strong&gt;numéricos permitidos&lt;/strong&gt;
         &lt;/mat-error&gt;
-        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;identification&#x27;].hasError(&#x27;maxlength&#x27;)&quot;&gt;
+        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;clientIdentification&#x27;].hasError(&#x27;maxlength&#x27;)&quot;&gt;
           Excediste de &lt;strong&gt;20 dígitos permitidos&lt;/strong&gt;
         &lt;/mat-error&gt;
       &lt;/mat-form-field&gt;
@@ -471,11 +682,11 @@ export class TurnGenerateComponent {
     &lt;div mat-list-item&gt;
       &lt;mat-form-field appearance&#x3D;&quot;outline&quot; fxFlex&#x3D;&quot;100&quot;&gt;
         &lt;mat-label&gt;Nombre&lt;/mat-label&gt;
-        &lt;input matInput placeholder&#x3D;&quot;Ej. Nombre Persona...&quot; formControlName&#x3D;&quot;name&quot; autocomplete&#x3D;&quot;off&quot; required&gt;
-        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;name&#x27;].hasError(&#x27;required&#x27;)&quot;&gt;
+        &lt;input matInput placeholder&#x3D;&quot;Ej. Nombre Persona...&quot; formControlName&#x3D;&quot;clientName&quot; autocomplete&#x3D;&quot;off&quot; required&gt;
+        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;clientName&#x27;].hasError(&#x27;required&#x27;)&quot;&gt;
           Campo es &lt;strong&gt;requerido&lt;/strong&gt;
         &lt;/mat-error&gt;
-        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;name&#x27;].hasError(&#x27;maxlength&#x27;)&quot;&gt;
+        &lt;mat-error *ngIf&#x3D;&quot;turnForm.controls[&#x27;clientName&#x27;].hasError(&#x27;maxlength&#x27;)&quot;&gt;
           Excediste de &lt;strong&gt;300 dígitos permitidos&lt;/strong&gt;
         &lt;/mat-error&gt;
       &lt;/mat-form-field&gt;
@@ -514,8 +725,8 @@ export class TurnGenerateComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form [formGroup]="turnForm" (submit)="create($event)">  <mat-nav-list>    <div mat-list-item>      <mat-form-field appearance="outline" fxFlex="100">        <mat-label>Identificación</mat-label>        <input matInput placeholder="Ej. 1234567890" formControlName="identification" autocomplete="off" required>        <mat-error *ngIf="turnForm.controls[\'identification\'].hasError(\'required\')">          Campo es <strong>requerido</strong>        </mat-error>        <mat-error *ngIf="turnForm.controls[\'identification\'].hasError(\'pattern\')">          Solo valores <strong>numéricos permitidos</strong>        </mat-error>        <mat-error *ngIf="turnForm.controls[\'identification\'].hasError(\'maxlength\')">          Excediste de <strong>20 dígitos permitidos</strong>        </mat-error>      </mat-form-field>    </div>    <div mat-list-item>      <mat-form-field appearance="outline" fxFlex="100">        <mat-label>Nombre</mat-label>        <input matInput placeholder="Ej. Nombre Persona..." formControlName="name" autocomplete="off" required>        <mat-error *ngIf="turnForm.controls[\'name\'].hasError(\'required\')">          Campo es <strong>requerido</strong>        </mat-error>        <mat-error *ngIf="turnForm.controls[\'name\'].hasError(\'maxlength\')">          Excediste de <strong>300 dígitos permitidos</strong>        </mat-error>      </mat-form-field>    </div>  </mat-nav-list>  <button mat-raised-button color="primary" type="submit">    SOLICITAR  </button></form></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ClockComponent', 'selector': 'app-clock'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListComponent', 'selector': 'app-list'},{'name': 'TurnGenerateComponent', 'selector': 'app-turn-generate'}];
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="turnForm" (submit)="create($event)">  <mat-nav-list>    <div mat-list-item>      <mat-form-field appearance="outline" fxFlex="100">        <mat-label>Identificación</mat-label>        <input matInput placeholder="Ej. 1234567890" formControlName="clientIdentification" autocomplete="off" required>        <mat-error *ngIf="turnForm.controls[\'clientIdentification\'].hasError(\'required\')">          Campo es <strong>requerido</strong>        </mat-error>        <mat-error *ngIf="turnForm.controls[\'clientIdentification\'].hasError(\'pattern\')">          Solo valores <strong>numéricos permitidos</strong>        </mat-error>        <mat-error *ngIf="turnForm.controls[\'clientIdentification\'].hasError(\'maxlength\')">          Excediste de <strong>20 dígitos permitidos</strong>        </mat-error>      </mat-form-field>    </div>    <div mat-list-item>      <mat-form-field appearance="outline" fxFlex="100">        <mat-label>Nombre</mat-label>        <input matInput placeholder="Ej. Nombre Persona..." formControlName="clientName" autocomplete="off" required>        <mat-error *ngIf="turnForm.controls[\'clientName\'].hasError(\'required\')">          Campo es <strong>requerido</strong>        </mat-error>        <mat-error *ngIf="turnForm.controls[\'clientName\'].hasError(\'maxlength\')">          Excediste de <strong>300 dígitos permitidos</strong>        </mat-error>      </mat-form-field>    </div>  </mat-nav-list>  <button mat-raised-button color="primary" type="submit">    SOLICITAR  </button></form></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardComponent', 'selector': 'app-card'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListComponent', 'selector': 'app-list'},{'name': 'TurnGenerateComponent', 'selector': 'app-turn-generate'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TurnGenerateComponent'};
 </script>

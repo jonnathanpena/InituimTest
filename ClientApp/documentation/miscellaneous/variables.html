@@ -61,16 +61,22 @@
                             <a href="#context" title="src/test.ts"><b>context</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
                         </li>
                         <li>
-                            <a href="#ELEMENT_DATA" title="src/app/list/list.component.ts"><b>ELEMENT_DATA</b>&nbsp;&nbsp;&nbsp;(src/.../list.component.ts)</a>
-                        </li>
-                        <li>
                             <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
+                            <a href="#initialState" title="src/app/redux/reducers/application.reducer.ts"><b>initialState</b>&nbsp;&nbsp;&nbsp;(src/.../application.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PrivateKey" title="src/app/redux/reducers/application.reducer.ts"><b>PrivateKey</b>&nbsp;&nbsp;&nbsp;(src/.../application.reducer.ts)</a>
+                        </li>
+                        <li>
                             <a href="#providers" title="src/main.ts"><b>providers</b>&nbsp;&nbsp;&nbsp;(src/.../main.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reload" title="src/app/redux/reducers/application.reducer.ts"><b>reload</b>&nbsp;&nbsp;&nbsp;(src/.../application.reducer.ts)</a>
                         </li>
                         <li>
                             <a href="#require" title="src/test.ts"><b>require</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
@@ -121,42 +127,6 @@
                         <td class="col-md-4">
                             <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>src/app/list/list.component.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ELEMENT_DATA"></a>
-                        <span class="name">
-                            <b>
-                            ELEMENT_DATA</b>
-                            <a href="#ELEMENT_DATA"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/PeriodicElement.html" target="_self" >PeriodicElement[]</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[
-  {position: 1, client_name: &#x27;Hydrogen&#x27;, queu_name: &#x27;H&#x27;},
-  {position: 2, client_name: &#x27;Helium&#x27;, queu_name: &#x27;He&#x27;},
-  {position: 3, client_name: &#x27;Lithium&#x27;,queu_name: &#x27;Li&#x27;},
-  {position: 4, client_name: &#x27;Beryllium&#x27;, queu_name: &#x27;Be&#x27;},
-  {position: 5, client_name: &#x27;Boron&#x27;, queu_name: &#x27;B&#x27;}
-]</code>
                         </td>
                     </tr>
 
@@ -220,6 +190,122 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
   production: false
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/redux/reducers/application.reducer.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initialState"></a>
+                        <span class="name">
+                            <b>
+                            initialState</b>
+                            <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/ApplicationState.html" target="_self" >ApplicationState</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  data: [],
+  last: {
+    id: 0,
+    queueId: 0,
+    queueCat: {
+      id: 0,
+      queueName: &#x27;&#x27;,
+      queueTime: 0
+    },
+    clientId: 0,
+    client: {
+      id: 0,
+      clientIdentification: &#x27;&#x27;,
+      clientName: &#x27;&#x27;
+    },
+    processed: false,
+    position: 0,
+    turnAt: null
+  },
+  next: [],
+  getAll: true
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="PrivateKey"></a>
+                        <span class="name">
+                            <b>
+                            PrivateKey</b>
+                            <a href="#PrivateKey"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;InitiumTest@Qutio2021&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reload"></a>
+                        <span class="name">
+                            <b>
+                            reload</b>
+                            <a href="#reload"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(state: ApplicationState &#x3D; initialState): ApplicationState &#x3D;&gt; {
+  if (localStorage.getItem(&#x27;queues&#x27;) !&#x3D;&#x3D; null &amp;&amp; localStorage.getItem(&#x27;queues&#x27;) !&#x3D;&#x3D; &#x27;&#x27;) {
+    const saved &#x3D; localStorage.getItem(&#x27;queues&#x27;);
+    const bytes &#x3D; CryptoJS.AES.decrypt(saved, PrivateKey);
+    if (bytes.toString()) {
+      const applicationState: ApplicationState &#x3D; JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+      applicationState.getAll &#x3D; true;
+      localStorage.setItem(&#x27;queues&#x27;, CryptoJS.AES.encrypt(JSON.stringify(applicationState), PrivateKey).toString());
+
+      return applicationState;
+    } else {
+      return state;
+    }
+  } else {
+    return state;
+  }
 }</code>
                         </td>
                     </tr>
